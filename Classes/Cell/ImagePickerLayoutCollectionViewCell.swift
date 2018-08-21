@@ -8,8 +8,7 @@
 
 import UIKit
 
-
-public class ImagePickerLayoutCollectionViewCell: UICollectionViewCell {
+class ImagePickerLayoutCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
     var deleteCallBack:CallBack?
