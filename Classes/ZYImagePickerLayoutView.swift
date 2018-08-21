@@ -43,7 +43,7 @@ class ZYImagePickerLayoutView: UIView {
     //添加回调
     var addCallBack:CallBack?
     //image个数
-    var dataSource:[ZYPhotoModel]?
+    var dataSource:[UIImage]?
     
     //是否需要加号
     var hiddenPlus = false
@@ -136,7 +136,7 @@ extension ZYImagePickerLayoutView:UICollectionViewDelegate,UICollectionViewDataS
                 return UICollectionViewCell()
             }
             
-            cell.imageView.image = dataSource![indexPath.row].thumbnailImage
+            cell.imageView.image = dataSource![indexPath.row]
             cell.deleteCallBack = { () in
                 self.dataSource?.remove(at: indexPath.row)
                 self.imageCollectionView.reloadData()
