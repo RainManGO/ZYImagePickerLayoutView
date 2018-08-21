@@ -10,21 +10,21 @@ import UIKit
 
 typealias CallBack = ()->()
 
-struct ItemSize {
+public struct ItemSize {
     var width:CGFloat = 70
     var height:CGFloat = 70
     var minimumInteritemSpacing:CGFloat = 10
     var minimumLineSpacing:CGFloat = 10
 }
 
-class ZYImagePickerLayoutView: UIView {
+public class ZYImagePickerLayoutView: UIView {
 
     let cellIdentifier = "ImagePickerLayoutCollectionViewCellId"
     var itemSize:ItemSize!
     var space:CGFloat = 10
     var datasourceHeight:CGFloat = 0
     
-    private lazy var imageCollectionView: UICollectionView = {
+    public lazy var imageCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
         //  collectionView
