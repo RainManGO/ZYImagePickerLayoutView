@@ -98,7 +98,7 @@ extension ZYImagePickerLayoutView{
         
     }
     
-    func reloadView(){
+    public func reloadView(){
         let spaceNumber = CGFloat(numberOfLine) - 1
         let width =  (self.frame.size.width - (space * spaceNumber))/CGFloat(numberOfLine)
         itemSize = ItemSize.init(width:width , height: width, minimumInteritemSpacing: space, minimumLineSpacing: space)
