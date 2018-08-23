@@ -8,9 +8,9 @@
 
 import UIKit
 
-typealias CallBack = ()->()
+public typealias CallBack = ()->()
 
-struct ItemSize {
+public struct ItemSize {
     var width:CGFloat = 70
     var height:CGFloat = 70
     var minimumInteritemSpacing:CGFloat = 10
@@ -20,9 +20,9 @@ struct ItemSize {
 public class ZYImagePickerLayoutView: UIView {
     
     let cellIdentifier = "ImagePickerLayoutCollectionViewCellId"
-    var itemSize:ItemSize!
-    var space:CGFloat = 10
-    var datasourceHeight:CGFloat = 0
+    public var itemSize:ItemSize!
+    public var space:CGFloat = 10
+    public var datasourceHeight:CGFloat = 0
     
     private lazy var imageCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -41,21 +41,21 @@ public class ZYImagePickerLayoutView: UIView {
     }()
     
     //添加回调
-    var addCallBack:CallBack?
+    public var addCallBack:CallBack?
     //image个数
-    var dataSource:[UIImage]?
+    public var dataSource:[UIImage]?
     
     //是否需要加号
-    var hiddenPlus = false
+    public var hiddenPlus = false
     //一行个数
-    var numberOfLine = 4 {
+    public var numberOfLine = 4 {
         didSet{
             
         }
     }
     //最大几个数
-    var maxNumber = 9
-    var hiddenDelete = false
+    public var maxNumber = 9
+    public var hiddenDelete = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
