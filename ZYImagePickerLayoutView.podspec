@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ZYImagePickerLayoutView"
-  spec.version      = "0.0.8"
+  spec.version      = "0.0.9"
   spec.summary      = "ZYImagePickerAndBrower 布局view"
   spec.swift_version = "4.1"
   # This description is used to generate tags and improve search results.
@@ -106,7 +106,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.resource  = "icon.png"
-  spec.resources = "Classes/Cell/*.xib"
+  spec.resources = "Classes/Cell/*.xib","Classes/Image/*.png"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
