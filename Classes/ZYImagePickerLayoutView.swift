@@ -168,7 +168,7 @@ extension ZYImagePickerLayoutView:UICollectionViewDelegate,UICollectionViewDataS
                 self.dataSource?.remove(at: indexPath.row)
                 self.imageCollectionView.reloadData()
                 self.checkHiddenPlus()
-                deletePhotoCallBack!()
+                self.deletePhotoCallBack!()
             }
             return cell
         }
