@@ -9,6 +9,7 @@
 import UIKit
 
 public typealias CallBack = ()->()
+public typealias DeleteCallBack = (_ deleteIndex:Int)->()
 
 public struct ItemSize {
     var width:CGFloat = 70
@@ -45,7 +46,7 @@ public class ZYImagePickerLayoutView: UIView {
     //添加回调
     public var addCallBack:CallBack?
     //删除回调
-    public var deletePhotoCallBack:CallBack?
+    public var deletePhotoCallBack:DeleteCallBack?
     //image个数
     public var dataSource:[UIImage]?
     //是否需要加号
@@ -168,7 +169,7 @@ extension ZYImagePickerLayoutView:UICollectionViewDelegate,UICollectionViewDataS
                 self.dataSource?.remove(at: indexPath.row)
                 self.imageCollectionView.reloadData()
                 self.checkHiddenPlus()
-                self.deletePhotoCallBack!()
+                self.deletePhotoCallBack!(indexPath.row)
             }
             return cell
         }
@@ -192,5 +193,6 @@ extension ZYImagePickerLayoutView:UICollectionViewDelegate,UICollectionViewDataS
         return CGSize(width:itemSize.width, height: itemSize.height)
     }
 }
+
 
 
