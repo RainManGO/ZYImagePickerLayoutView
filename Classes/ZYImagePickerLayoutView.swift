@@ -10,6 +10,7 @@ import UIKit
 
 public typealias CallBack = ()->()
 public typealias DeleteCallBack = (_ deleteIndex:Int)->()
+public typealias IndexCallBack = (_ selectRow:Int)->()
 
 public struct ItemSize {
     var width:CGFloat = 70
@@ -45,6 +46,8 @@ public class ZYImagePickerLayoutView: UIView {
     
     //添加回调
     public var addCallBack:CallBack?
+    //点击回调
+    public var tapCellCallBack:IndexCallBack?
     //删除回调
     public var deletePhotoCallBack:DeleteCallBack?
     //image个数
@@ -165,6 +168,7 @@ extension ZYImagePickerLayoutView:UICollectionViewDelegate,UICollectionViewDataS
             }
             
             cell.imageView.image = dataSource![indexPath.row]
+            cell.deleteBtn.isHidden = hiddenDelete
             cell.deleteCallBack = { () in
                 self.dataSource?.remove(at: indexPath.row)
                 self.imageCollectionView.reloadData()
@@ -178,6 +182,10 @@ extension ZYImagePickerLayoutView:UICollectionViewDelegate,UICollectionViewDataS
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row >= dataSource?.count ?? 0 { //加号按钮
             addCallBack!()
+        }else{
+            if let callback = tapCellCallBack {
+                callback(indexPath.row)
+            }
         }
     }
     
