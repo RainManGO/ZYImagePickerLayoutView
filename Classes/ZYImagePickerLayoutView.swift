@@ -181,7 +181,9 @@ extension ZYImagePickerLayoutView:UICollectionViewDelegate,UICollectionViewDataS
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row >= dataSource?.count ?? 0 { //加号按钮
-            addCallBack!()
+            if let callback = addCallBack{
+                callback()
+            }
         }else{
             if let callback = tapCellCallBack {
                 callback(indexPath.row)
